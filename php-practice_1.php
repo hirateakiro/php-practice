@@ -13,6 +13,7 @@ $num /= 2;
 echo $num;
 
 // Q3 日付操作
+date_default_timezone_set('Asia/Tokyo');
 $date = date('Y年m月d日 H時i分s秒');
 echo '現在時刻は、' . $date . 'です。';
 
@@ -68,9 +69,9 @@ $kanto =
   '群馬県' => '前橋市',
   '茨城県' => '水戸市'
 ];
-foreach ($kanto as $prefectures=>$prefecturalCapitalLocation) {
-    if($prefectures === '埼玉県' && $prefecturalCapitalLocation === 'さいたま市'){
-        echo "{$prefectures}の県庁所在地は、{$prefecturalCapitalLocation}です。";
+foreach ($kanto as $prefecture=>$prefecturalCapitalLocation) {
+    if($prefecture === '埼玉県'){
+        echo "{$prefecture}の県庁所在地は、{$prefecturalCapitalLocation}です。";
     }
 };
 
@@ -88,12 +89,12 @@ $kanto =
 
 $kanto['愛知県'] = '名古屋市';
 $kanto['大阪府'] = '大阪市';
-foreach ($kanto as $prefectures=>$prefecturalCapitalLocation) {
-    if($prefectures === '愛知県' || $prefectures === '大阪府') {
-        echo "{$prefectures}は関東地方ではありません。";
+foreach ($kanto as $prefecture=>$prefecturalCapitalLocation) {
+    if($prefecture === '愛知県' || $prefecture === '大阪府') {
+        echo "{$prefecture}は関東地方ではありません。";
         echo "\n";
     } else {
-        echo "{$prefectures}の県庁所在地は、{$prefecturalCapitalLocation}です。";
+        echo "{$prefecture}の県庁所在地は、{$prefecturalCapitalLocation}です。";
         echo "\n";
     };
 };
@@ -133,19 +134,15 @@ echo distinguishNum(24);
 function evaluateGrade($grades) {
   switch ($grades) {
       case 'A':
-      case 'B';
+      case 'B':
           return "合格です。\n";
-          break;
       case 'C':
           return "合格ですが追加課題があります。\n";
-          break;
       case 'D':
           return "不合格です。\n";
-          break;
       
       default:
           return "判定不明です。講師に問い合わせてください。\n";
-          break;
   };
 };
 
